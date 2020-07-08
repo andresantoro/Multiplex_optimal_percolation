@@ -1,5 +1,5 @@
 # Codes for "Optimal percolation in correlated multilayer networks with overlap"
-The Python implementation of the targeted attack strategies presented in the paper can be found in folder: ```Targeted_methods_python```.
+The Python implementation of the targeted attack strategies presented in the paper can be found in the folder: ```Targeted_methods_python```.
 
 
 
@@ -11,7 +11,7 @@ Multilayer networks have been found to be prone to abrupt cascading failures und
 
 Citation
 ----------
-A. Santoro & V. Nicosia (2019) *Optimal percolation in correlated multilayer networks with overlap* ArXiv preprint: https://arxiv.org/abs/1910.04783
+A. Santoro & V. Nicosia (2019) "*Optimal percolation in correlated multilayer networks with overlap*" ArXiv preprint: https://arxiv.org/abs/1910.04783
 
 
 
