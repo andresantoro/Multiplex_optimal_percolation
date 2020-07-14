@@ -85,8 +85,8 @@ done
 ${DEG_SEQ} ${cur_L2} > ${cur_L2}_degs
 python ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
 echo "CURRENT VALUE OF RHO: ${rho}"
-cp ${L1}_rho_${rho} ${L1}
-cp ${L2}_rho_${rho} ${L2}
+# cp ${L1}_rho_${rho} ${L1}
+# cp ${L2}_rho_${rho} ${L2}
 rm pairing*
 
 
