@@ -1,6 +1,13 @@
 # Codes for "Optimal percolation in correlated multilayer networks with overlap"
 The Python implementation of the targeted attack strategies presented in the paper can be found in the folder: ```Targeted_methods_python```.
 
+The collection of algorithms for tuning the interlayer degree correlation and structural edge overlap of a duplex network can be found in the folder:```Duplex_tuning_correlation_and_overlap```. Part of this code is based on the libraries developed in the following resources. For more information please visit:
+
+http://www.complex-networks.net/
+https://github.com/KatolaZ/mammult
+
+
+
 
 
 
