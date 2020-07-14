@@ -4,6 +4,7 @@ The Python implementation of the targeted attack strategies presented in the pap
 The collection of algorithms for tuning the interlayer degree correlation and structural edge overlap of a duplex network can be found in the folder:```Duplex_tuning_correlation_and_overlap```. Part of this code is based on the libraries developed in the following resources. For more information please visit:
 
 http://www.complex-networks.net/
+
 https://github.com/KatolaZ/mammult
 
 
