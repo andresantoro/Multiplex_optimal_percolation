@@ -173,13 +173,13 @@ int main(int argc, char *argv[])
 
   for (i = 1; i < argc; i++) 
   {
-    if (argv[i][0] == '-'  && argv[i][1] == 't' || argv[i][1] == 'T') 
+    if (argv[i][0] == '-'  && (argv[i][1] == 't' || argv[i][1] == 'T'))
     {
       if (argc > i+1)
         TOLL = (double)atof(argv[i+1]);
       fprintf(stderr,"Tollerance inserted: %lf\n", TOLL);
     }
-    if (argv[i][0] == '-'  && argv[i][1] == 'm' || argv[i][1] == 'M') 
+    if (argv[i][0] == '-'  && (argv[i][1] == 'm' || argv[i][1] == 'M'))
     {
       if (argc > i+1)
         max_overlap = (double)atof(argv[i+1]);
