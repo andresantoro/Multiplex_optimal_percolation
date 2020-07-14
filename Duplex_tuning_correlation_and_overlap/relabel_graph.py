@@ -9,7 +9,7 @@
 import sys
 
 if len(sys.argv) < 3:
-    print "Usage: %s <netfile> <relabel_map>" % sys.argv[0]
+    print("Usage: %s <netfile> <relabel_map>" % sys.argv[0])
     sys.exit(1)
 
 #### The relabel map
@@ -29,10 +29,10 @@ lines = open(sys.argv[1], "r").readlines()
 for l in lines:
     elems = l.strip(" \n").split(" ")
     s, d = map[int(elems[0])], map[int(elems[1])]
-    print s, d, 
+    print(s, d, end=' ')
     for i in elems[2:]:
-        print i,
-    print
+        print(i, end =' ')
+    print()
     
 
     

@@ -35,7 +35,7 @@ def compute_C(rank1, rank2):
     [sum1, sum2] = [1.0 * sum(x.values()) for x in [rank1, rank2]]
     C = N * mu1 * mu2 - mu2 * sum1 - mu1 * sum2
 
-    #print mu1, mu2, sum1, sum2, C
+    #print(mu1, mu2, sum1, sum2, C)
 
     return C
 
@@ -60,7 +60,7 @@ def compute_rho(rank1, rank2, pairing, C, D):
     return rho
 
 if len(sys.argv) < 3:
-    print "Usage: %s <rank1> <rank2> [<pairing>]" % sys.argv[0]
+    print("Usage: %s <rank1> <rank2> [<pairing>]" % sys.argv[0])
     sys.exit(1)
 
 rank1 = {}
@@ -92,7 +92,7 @@ N1 = len(rank1)
 N2 = len(rank2)
 
 if (N1 != N2):
-    print "The two files must have the same number of nodes!!!!!"
+    print("The two files must have the same number of nodes!!!!!")
     sys.exit(2)
 
 
@@ -122,9 +122,9 @@ else:
 
 
 if len(pairing) != N1:
-    print "ERROR !!! The pairing should be of the same length of the ranking files!!!"
+    print("ERROR !!! The pairing should be of the same length of the ranking files!!!")
     sys.exit(1)
 
 rho = compute_rho(rank1, rank2, pairing, C, D)
 
-print rho
+print(rho)

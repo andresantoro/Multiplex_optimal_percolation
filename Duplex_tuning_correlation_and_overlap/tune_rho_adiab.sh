@@ -46,7 +46,7 @@ RELABEL_GRAPHS="relabel_graph.py"
 ##Computing the degree of each node and save it in a file
 ${DEG_SEQ} ${L1} > ${L1}_degs
 ##Computing the rank of each node according to the degree and save it in a file
-python2.7 ${RANK_NODES} ${L1}_degs > ${L1}_rank
+python ${RANK_NODES} ${L1}_degs > ${L1}_rank
 
 cur_L2=${L2}
 val=0.95
@@ -62,7 +62,7 @@ for rho in `seq -f "%.1f" ${RHO_MIN} ${RHO_STEP} ${RHO_MAX}`; do
     ${DEG_SEQ} ${cur_L2} > ${cur_L2}_degs
     ##Computing the ranking of the nodes acorrding to the degree sequence
     ##and save it in the corresponding file
-    python2.7 ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
+    python ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
     ## When we are close to MP and MN correlations, it could be useful to change
     ## the EPS tollerance to a greater threshold (the threshold could be too small,
     ## hence it is not possible to obtain the duplex with that value of correlation)
@@ -77,13 +77,13 @@ for rho in `seq -f "%.1f" ${RHO_MIN} ${RHO_STEP} ${RHO_MAX}`; do
     #in one of the two layers (based on the code of MAMMULT - https://github.com/KatolaZ/mammult) 
     ${TUNE_RHO} ${L1}_rank ${cur_L2}_rank ${rho} ${EPS} ${BETA} NAT > ${label_map}
     new_L2=${L2}_relabel_${rho}.txt
-    python2.7 ${RELABEL_GRAPHS} ${cur_L2} ${label_map} > ${new_L2}
+    python ${RELABEL_GRAPHS} ${cur_L2} ${label_map} > ${new_L2}
     cur_L2=${new_L2}
     cp ${L1} ${L1}_rho_${rho}
     cp ${new_L2} ${L2}_rho_${rho}
 done
 ${DEG_SEQ} ${cur_L2} > ${cur_L2}_degs
-python2.7 ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
+python ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
 echo "CURRENT VALUE OF RHO: ${rho}"
 cp ${L1}_rho_${rho} ${L1}
 cp ${L2}_rho_${rho} ${L2}
@@ -103,7 +103,7 @@ for rho in `seq -f "%.1f" 0.9 -${RHO_STEP} -${RHO_MAX}`; do
     fi
     label_map=pairing_${L1}_${rho}.txt
     ${DEG_SEQ} ${cur_L2} > ${cur_L2}_degs
-    python2.7  ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
+    python  ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
     ##This for changing the EPS tollerance for the difficult case, a.k.a. when we are close to MP and MN correlations
     s_val=`echo "$rho < $val" | bc -l`
     if [ $s_val -eq 1 ]
@@ -113,7 +113,7 @@ for rho in `seq -f "%.1f" 0.9 -${RHO_STEP} -${RHO_MAX}`; do
     fi
     ${TUNE_RHO} ${L1}_rank ${cur_L2}_rank ${rho} ${EPS} ${BETA} NAT > ${label_map}
     new_L2=${L2}_relabel_${rho}.txt
-    python2.7 ${RELABEL_GRAPHS} ${cur_L2} ${label_map} > ${new_L2}
+    python ${RELABEL_GRAPHS} ${cur_L2} ${label_map} > ${new_L2}
     cur_L2=${new_L2}
     cp ${L1} ${L1}_rho_${rho}
     cp ${new_L2} ${L2}_rho_${rho}
@@ -121,7 +121,7 @@ for rho in `seq -f "%.1f" 0.9 -${RHO_STEP} -${RHO_MAX}`; do
 
 done
 ${DEG_SEQ} ${cur_L2} > ${cur_L2}_degs
-python2.7 ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
+python ${RANK_NODES} ${cur_L2}_degs > ${cur_L2}_rank
 
 
 # Saving all the data in a folder

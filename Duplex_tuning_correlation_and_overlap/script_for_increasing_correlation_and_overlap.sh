@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/binsh
 LANG=en_US # This is required for having sequence with dot instead of comma
 
 if [ $# -le 2 ]; then
